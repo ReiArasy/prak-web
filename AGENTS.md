@@ -747,6 +747,18 @@ fix: correct task form markup
 docs: update html learning guide
 ```
 
+### Branching Strategy
+
+Repository menggunakan alur percabangan terstruktur:
+* `main`: branch stabil / rilis produksi. Dilarang melakukan development langsung di `main`.
+* `dev`: branch integrasi utama untuk seluruh pengembangan fitur StudyFlow.
+* `feat/*`, `fix/*`, `refactor/*`, `docs/*`: branch tugas yang dibuat dari `dev` dan di-merge kembali ke `dev`.
+
+Alur standar:
+```text
+dev -> feat/* -> development & commit -> push -> merge/PR -> dev -> main (saat stabil)
+```
+
 Jangan:
 
 * force push tanpa instruksi eksplisit,

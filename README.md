@@ -490,31 +490,24 @@ Testing juga digunakan sebagai dokumentasi perilaku sistem.
 
 # 15. Dokumentasi
 
-Dokumentasi proyek disimpan di repository dan dapat berkembang seiring pertumbuhan sistem.
-
-Dokumentasi dapat meliputi:
+Dokumentasi proyek disimpan di repository dan dapat berkembang seiring pertumbuhan sistem:
 
 ```text
 docs/
-├── project-overview.md
-├── learning-roadmap.md
-├── architecture.md
-├── modules/
-├── troubleshooting/
-├── testing/
-└── deployment/
+├── project-overview.md     # Latar belakang, persona, domain, dan fitur StudyFlow
+├── learning-roadmap.md     # Roadmap kurikulum berjenjang (HTML -> Deployment)
+├── git-workflow.md         # Panduan alur Git dan branching strategy
+└── modules/                # Panduan materi bagi Teaching Assistant (TA)
+    └── README.md
 ```
 
-Dokumentasi tidak hanya menjelaskan "cara menjalankan".
+Tautan dokumentasi resmi:
+* [Project Overview](docs/project-overview.md)
+* [Learning Roadmap](docs/learning-roadmap.md)
+* [Git Workflow & Branching Guide](docs/git-workflow.md)
+* [Teaching Assistant Guide](docs/modules/README.md)
 
-Dokumentasi juga harus menjelaskan:
-
-* alasan desain,
-* konsep teknis,
-* hubungan antar-layer,
-* batasan,
-* troubleshooting,
-* dan keputusan arsitektur.
+Dokumentasi tidak hanya menjelaskan "cara menjalankan", melainkan juga alasan desain, konsep teknis, hubungan antar-layer, dan panduan pengajaran.
 
 ---
 
@@ -537,13 +530,23 @@ Tujuannya adalah membantu mahasiswa memahami konsep, bukan memberikan jawaban se
 
 ---
 
-# 17. Prinsip Git
+# 17. Prinsip & Alur Kerja Git
 
-Repository menggunakan Git sebagai version control.
+Repository menggunakan Git sebagai version control dengan model percabangan terstruktur:
 
-Commit sebaiknya memiliki tujuan yang jelas.
+```text
+main (rilis stabil / production)
+ │
+ └── dev (integrasi utama pengembangan)
+      ├── feat/*      (fitur baru)
+      ├── fix/*       (perbaikan bug)
+      ├── refactor/*  (refaktor struktur kode)
+      └── docs/*      (dokumentasi)
+```
 
-Contoh:
+Panduan lengkap mengenai alur kerja, penamaan branch, dan keselamatan Git tersedia di [docs/git-workflow.md](docs/git-workflow.md).
+
+Commit sebaiknya memiliki tujuan yang jelas dan mengikuti format Conventional Commits:
 
 ```text
 feat: add task overview section
@@ -553,7 +556,7 @@ docs: update project architecture
 test: add task service tests
 ```
 
-Perubahan besar sebaiknya tidak digabung dengan perubahan yang tidak berkaitan.
+Perubahan besar sebaiknya tidak digabung dengan perubahan yang tidak berkaitan. Dilarang melakukan force push atau modifikasi langsung pada branch `main`.
 
 ---
 
