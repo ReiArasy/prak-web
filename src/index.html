@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyFlow - Personal Academic Task Management System untuk mahasiswa S1 Rekayasa Perangkat Lunak.">
+  <title>StudyFlow — Personal Academic Task Management</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- HEADER & NAVIGATION                        -->
+  <!-- ========================================== -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="branding">
+        <img src="../assets/logo.svg" alt="StudyFlow Logo" class="brand-logo" width="40" height="40">
+        <div class="brand-text">
+          <h1 class="brand-title">StudyFlow</h1>
+          <p class="brand-tagline">Personal Academic Task Management</p>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+          <li><a href="#task-summary" class="nav-link">Ringkasan</a></li>
+          <li><a href="#tasks" class="nav-link">Daftar Tugas</a></li>
+          <li><a href="#add-task" class="nav-link nav-btn">+ Tambah Tugas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- MAIN CONTENT AREA                          -->
+  <!-- ========================================== -->
+  <main class="main-content">
+
+    <!-- INTRODUCTORY / HERO SECTION -->
+    <section id="dashboard" class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <span class="academic-badge">Semester Ganjil 2026/2027</span>
+        <h2 id="hero-heading" class="hero-title">Kelola Aktivitas Akademik Anda Lebih Terstruktur</h2>
+        <p class="hero-desc">
+          StudyFlow membantu mahasiswa memantau jurnal praktikum, tugas perkuliahan, proyek besar, dan tenggat waktu akademik dalam satu antarmuka yang efisien dan terorganisir.
+        </p>
+        <div class="hero-actions">
+          <a href="#add-task" class="btn btn-primary">Catat Tugas Baru</a>
+          <a href="#tasks" class="btn btn-secondary">Lihat Semua Tugas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK SUMMARY SECTION -->
+    <section id="task-summary" class="summary-section" aria-labelledby="summary-heading">
+      <div class="section-header">
+        <h2 id="summary-heading" class="section-title">Status Beban Belajar</h2>
+        <p class="section-subtitle">Ringkasan kemajuan pengerjaan tugas akademik saat ini</p>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card stat-total">
+          <div class="stat-icon" aria-hidden="true">📋</div>
+          <div class="stat-info">
+            <h3 class="stat-label">Total Tugas</h3>
+            <p class="stat-value">5</p>
+          </div>
+        </article>
+
+        <article class="summary-card stat-urgent">
+          <div class="stat-icon" aria-hidden="true">🔥</div>
+          <div class="stat-info">
+            <h3 class="stat-label">Prioritas Tinggi</h3>
+            <p class="stat-value">2</p>
+          </div>
+        </article>
+
+        <article class="summary-card stat-progress">
+          <div class="stat-icon" aria-hidden="true">⏳</div>
+          <div class="stat-info">
+            <h3 class="stat-label">Sedang Berjalan</h3>
+            <p class="stat-value">2</p>
+          </div>
+        </article>
+
+        <article class="summary-card stat-completed">
+          <div class="stat-icon" aria-hidden="true">✅</div>
+          <div class="stat-info">
+            <h3 class="stat-label">Telah Selesai</h3>
+            <p class="stat-value">1</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TASK LIST SECTION -->
+    <section id="tasks" class="tasks-section" aria-labelledby="tasks-heading">
+      <div class="section-header-flex">
+        <div>
+          <h2 id="tasks-heading" class="section-title">Daftar Tugas Akademik</h2>
+          <p class="section-subtitle">Aktivitas dan kewajiban semester berjalan</p>
+        </div>
+        <div class="filter-controls" role="group" aria-label="Filter Status Tugas">
+          <button type="button" class="filter-btn active">Semua (5)</button>
+          <button type="button" class="filter-btn">Perlu Dikerjakan (4)</button>
+          <button type="button" class="filter-btn">Selesai (1)</button>
+        </div>
+      </div>
+
+      <div class="task-grid">
+
+        <!-- TASK 1 -->
+        <article class="task-card" id="task-1">
+          <header class="task-header">
+            <span class="course-badge">Perancangan & Pemrograman Web</span>
+            <span class="priority-badge priority-high">High Priority</span>
+          </header>
+          <div class="task-body">
+            <h3 class="task-title">Kerjakan Jurnal Pemrograman Web</h3>
+            <p class="task-description">
+              Implementasikan struktur semantic HTML5 (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;footer&gt;) serta form dengan label aksesibel sesuai modul praktikum.
+            </p>
+          </div>
+          <div class="task-meta">
+            <span class="task-deadline">
+              <span class="icon" aria-hidden="true">📅</span>
+              <time datetime="2026-09-20">20 Sep 2026</time>
+            </span>
+            <span class="status-badge status-in-progress">Sedang Dikerjakan</span>
+          </div>
+          <footer class="task-actions">
+            <button type="button" class="btn btn-sm btn-outline">Tandai Selesai</button>
+            <button type="button" class="btn btn-sm btn-text">Ubah</button>
+          </footer>
+        </article>
+
+        <!-- TASK 2 -->
+        <article class="task-card" id="task-2">
+          <header class="task-header">
+            <span class="course-badge">Basis Data</span>
+            <span class="priority-badge priority-high">High Priority</span>
+          </header>
+          <div class="task-body">
+            <h3 class="task-title">Submit Laporan Basis Data</h3>
+            <p class="task-description">
+              Menyusun Entity Relationship Diagram (ERD) dan skema relasional 3NF untuk sistem basis data perpustakaan digital laboratorium informatika.
+            </p>
+          </div>
+          <div class="task-meta">
+            <span class="task-deadline">
+              <span class="icon" aria-hidden="true">📅</span>
+              <time datetime="2026-09-18">18 Sep 2026</time>
+            </span>
+            <span class="status-badge status-pending">Belum Dimulai</span>
+          </div>
+          <footer class="task-actions">
+            <button type="button" class="btn btn-sm btn-outline">Tandai Selesai</button>
+            <button type="button" class="btn btn-sm btn-text">Ubah</button>
+          </footer>
+        </article>
+
+        <!-- TASK 3 -->
+        <article class="task-card" id="task-3">
+          <header class="task-header">
+            <span class="course-badge">Pemrograman Frontend</span>
+            <span class="priority-badge priority-medium">Medium Priority</span>
+          </header>
+          <div class="task-body">
+            <h3 class="task-title">Belajar React Component & JSX</h3>
+            <p class="task-description">
+              Mempelajari konsep functional component, deklarasi props menggunakan destructuring, serta alur data searah (unidirectional data flow) pada dokumentasi React.
+            </p>
+          </div>
+          <div class="task-meta">
+            <span class="task-deadline">
+              <span class="icon" aria-hidden="true">📅</span>
+              <time datetime="2026-09-25">25 Sep 2026</time>
+            </span>
+            <span class="status-badge status-pending">Belum Dimulai</span>
+          </div>
+          <footer class="task-actions">
+            <button type="button" class="btn btn-sm btn-outline">Tandai Selesai</button>
+            <button type="button" class="btn btn-sm btn-text">Ubah</button>
+          </footer>
+        </article>
+
+        <!-- TASK 4 -->
+        <article class="task-card" id="task-4">
+          <header class="task-header">
+            <span class="course-badge">Rekayasa Perangkat Lunak</span>
+            <span class="priority-badge priority-medium">Medium Priority</span>
+          </header>
+          <div class="task-body">
+            <h3 class="task-title">Kumpulkan Proyek Kelompok</h3>
+            <p class="task-description">
+              Finalisasi dokumen Software Requirements Specification (SRS), perancangan arsitektur berjenjang, dan diagram use case bersama anggota tim proyek.
+            </p>
+          </div>
+          <div class="task-meta">
+            <span class="task-deadline">
+              <span class="icon" aria-hidden="true">📅</span>
+              <time datetime="2026-09-28">28 Sep 2026</time>
+            </span>
+            <span class="status-badge status-in-progress">Sedang Dikerjakan</span>
+          </div>
+          <footer class="task-actions">
+            <button type="button" class="btn btn-sm btn-outline">Tandai Selesai</button>
+            <button type="button" class="btn btn-sm btn-text">Ubah</button>
+          </footer>
+        </article>
+
+        <!-- TASK 5 -->
+        <article class="task-card task-card-completed" id="task-5">
+          <header class="task-header">
+            <span class="course-badge">Matrikulasi & Teori</span>
+            <span class="priority-badge priority-low">Low Priority</span>
+          </header>
+          <div class="task-body">
+            <h3 class="task-title">Persiapan UAS & Review Materi</h3>
+            <p class="task-description">
+              Merangkum catatan kuliah pertemuan 1 hingga 7, mempelajari kembali konsep Git branching, serta menyelesaikan latihan soal pemrograman web.
+            </p>
+          </div>
+          <div class="task-meta">
+            <span class="task-deadline">
+              <span class="icon" aria-hidden="true">📅</span>
+              <time datetime="2026-10-15">15 Okt 2026</time>
+            </span>
+            <span class="status-badge status-done">Tuntas</span>
+          </div>
+          <footer class="task-actions">
+            <button type="button" class="btn btn-sm btn-text">Buka Kembali</button>
+            <button type="button" class="btn btn-sm btn-text">Arsipkan</button>
+          </footer>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ADD TASK FORM SECTION -->
+    <section id="add-task" class="form-section" aria-labelledby="form-heading">
+      <div class="section-header">
+        <h2 id="form-heading" class="section-title">Tambah Tugas Akademik Baru</h2>
+        <p class="section-subtitle">Catat tugas, laporan praktikum, atau target belajar untuk mengontrol deadline perkuliahan</p>
+      </div>
+
+      <form id="task-form" class="task-form" action="#" method="POST">
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Rincian Informasi Tugas</legend>
+
+          <!-- Judul Tugas -->
+          <div class="form-group">
+            <label for="task-title-input" class="form-label">
+              Judul Tugas <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="task-title-input" 
+              name="title" 
+              class="form-input" 
+              placeholder="Contoh: Menyelesaikan Jurnal Pemrograman Web Modul 3" 
+              required
+              maxlength="150"
+            >
+          </div>
+
+          <!-- Baris Mata Kuliah & Tenggat Waktu -->
+          <div class="form-row">
+            <div class="form-group col-half">
+              <label for="task-course-select" class="form-label">
+                Mata Kuliah <span class="required" aria-hidden="true">*</span>
+              </label>
+              <select id="task-course-select" name="course" class="form-select" required>
+                <option value="" disabled selected>-- Pilih Mata Kuliah --</option>
+                <option value="webpro">Perancangan dan Pemrograman Web</option>
+                <option value="basdat">Basis Data</option>
+                <option value="rpl">Rekayasa Perangkat Lunak</option>
+                <option value="alpro">Algoritma &amp; Pemrograman</option>
+                <option value="jarkom">Jaringan Komputer</option>
+                <option value="other">Aktivitas Akademik Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group col-half">
+              <label for="task-deadline-input" class="form-label">
+                Tenggat Waktu (Deadline) <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input 
+                type="date" 
+                id="task-deadline-input" 
+                name="dueDate" 
+                class="form-input" 
+                required
+              >
+            </div>
+          </div>
+
+          <!-- Tingkat Prioritas -->
+          <div class="form-group">
+            <label class="form-label">Tingkat Prioritas <span class="required" aria-hidden="true">*</span></label>
+            <div class="radio-group" role="radiogroup" aria-label="Pilihan Prioritas Tugas">
+              <label class="radio-label">
+                <input type="radio" name="priority" value="low" id="priority-low">
+                <span>Rendah (Low)</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="priority" value="medium" id="priority-medium" checked>
+                <span>Sedang (Medium)</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="priority" value="high" id="priority-high">
+                <span>Tinggi (High)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Catatan / Deskripsi -->
+          <div class="form-group">
+            <label for="task-desc-input" class="form-label">Deskripsi / Catatan Tambahan</label>
+            <textarea 
+              id="task-desc-input" 
+              name="description" 
+              class="form-textarea" 
+              rows="4" 
+              placeholder="Tambahkan detail kebutuhan tugas, tautan referensi, atau instruksi dari dosen/asisten..."
+            ></textarea>
+          </div>
+
+          <!-- Form Action Buttons -->
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary">Reset Formulir</button>
+            <button type="submit" class="btn btn-primary">Simpan Tugas Akademik</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3 class="footer-brand">StudyFlow</h3>
+        <p class="footer-text">
+          Personal Academic Task Management System. Dibuat untuk praktikum Perancangan dan Pemrograman Web, Program Studi S1 Rekayasa Perangkat Lunak, Fakultas Informatika, Universitas Telkom.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-heading">Dokumentasi Proyek</h4>
+        <ul class="footer-list">
+          <li><a href="../docs/project-overview.md" class="footer-link">Project Overview</a></li>
+          <li><a href="../docs/learning-roadmap.md" class="footer-link">Learning Roadmap</a></li>
+          <li><a href="../docs/git-workflow.md" class="footer-link">Git Workflow</a></li>
+          <li><a href="../docs/modules/README.md" class="footer-link">Panduan Teaching Assistant</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudyFlow. One product. Progressive development. Meaningful learning.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
