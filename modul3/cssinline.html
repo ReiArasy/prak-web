@@ -1,129 +1,161 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- 3.9.2 Viewport Meta Tag untuk Desain Responsif -->
   <meta charset="UTF-8">
+  <!-- Subbab 3.9.2 Viewport Meta Tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Praktikum - Modul 3 CSS</title>
+  <title>Praktikum Web Programming - Modul 3</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-  <!-- 3.1.1 (b) Internal Style Sheet -->
+  <!-- Subbab 3.1.1 (b) Internal Style Sheet -->
   <style>
-    /* Reset sederhana */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      /* 3.2 Font Properties & 3.5 Colors (Hex / Names) */
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f9;
-      color: #333333;
-      padding: 20px;
-    }
-
-    /* 3.1.2 Selector Dasar (Element & Class) */
+    /* Subbab 3.1.2 & 3.4 Alignment of Text */
     h1 {
-      /* 3.4 Alignment of Text */
       text-align: center;
       color: maroon;
-      margin-bottom: 25px;
+      margin-left: 40px;
     }
 
-    .section-box {
-      background-color: #ffffff;
-      border: 1px solid #dddddd;
-      border-radius: 6px;
-      padding: 20px;
-      margin-bottom: 25px;
+    h2 {
+      text-align: left;
     }
 
-    .section-title {
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 8px;
-      margin-bottom: 15px;
-      color: #007bff;
+    h3 {
+      text-align: right;
     }
 
-    /* 3.2 Font Properties & 3.6 Span-Div Styling */
-    .p-custom {
-      font-size: 16px;
+    /* Subbab 3.1.2 Selector Elemen & Class */
+    p.center {
+      text-align: center;
+      color: red;
+    }
+
+    #para1 {
+      text-align: center;
+      color: red;
+    }
+
+    /* Subbab 3.2 Font Properties */
+    p.example {
+      font-family: Arial;
+      font-size: 20px;
+      color: lightblue;
       font-style: italic;
       font-weight: bold;
-      line-height: 1.6;
     }
 
-    .mark-highlight {
+    /* Subbab 3.3 List Properties dengan tambahan CSS */
+    ul.listsatu {
       background-color: tomato;
-      color: white;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    /* 3.3 List Properties & 3.5 RGBA Color */
-    ul.list-satu {
-      background-color: rgba(255, 99, 71, 0.2); /* RGBA dengan Opacity */
-      list-style-type: square;
+      margin: 10px 5px 10px 5px;
+      list-style-type: lower-alpha;
       list-style-position: inside;
-      padding: 10px;
-      margin-bottom: 10px;
     }
 
-    ol.list-dua {
-      background-color: rgba(173, 216, 230, 0.4);
+    ol.listdua {
+      background-color: lightblue;
       list-style-type: lower-roman;
+      padding: 5px 5px 15px 15px;
       list-style-position: inside;
-      padding: 10px;
     }
 
-    /* =========================================================
-       3.7 & 3.9.4 Flexbox & Responsive Navbar
-       ========================================================= */
-    .navbar-demo {
+    /* Subbab 3.5 Colors & Opacity */
+    #teks {
+      color: #2F3CDF;
+    }
+
+    input.text-field {
+      background-color: rgba(32, 55, 122, 0.5);
+      color: white;
+      padding: 5px;
+    }
+
+    /* Subbab 3.6 Span & Div */
+    .section1 {
+      background-color: lightgrey;
+      padding: 10px 5px 10px 5px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .mark {
+      background-color: tomato;
+      font-style: italic;
+      font-weight: bold;
+      padding: 10px 10px 10px 10px;
+    }
+
+    /* Subbab 3.7.2 & 3.9.4 Flexbox Navbar */
+    .navbar {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      background-color: #343a40;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 4px;
       gap: 15px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 15px;
-    }
-
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    /* =========================================================
-       3.8 CSS Grid Layout (grid-template-areas & 1fr 3fr)
-       ========================================================= */
-    .layout-grid {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      grid-template-rows: auto auto auto;
-      grid-template-areas:
-        "header  header"
-        "sidebar content"
-        "footer  footer";
-      gap: 12px;
+      background-color: #e2e3e5;
+      padding: 10px;
       margin-top: 15px;
     }
 
-    .grid-header  { grid-area: header; background: #e3f2fd; padding: 15px; font-weight: bold; }
-    .grid-sidebar { grid-area: sidebar; background: #fff3cd; padding: 15px; }
-    .grid-content { grid-area: content; background: #d1e7dd; padding: 15px; }
-    .grid-footer  { grid-area: footer; background: #e2e3e5; padding: 15px; text-align: center; }
+    /* Subbab 3.7.3 Properti Flex Item */
+    .card-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
 
-    /* Grid Produk untuk Uji Breakpoint */
+    .card {
+      flex-grow: 1;
+      background-color: #d1e7dd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .card.featured {
+      flex-grow: 2;
+      order: -1;
+      background-color: #cfe2ff;
+    }
+
+    /* Subbab 3.8 CSS Grid (layout, fr, & grid-template-areas) */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    header.header {
+      grid-area: header;
+      background-color: #f8d7da;
+      padding: 15px;
+    }
+
+    aside.sidebar {
+      grid-area: sidebar;
+      background-color: #fff3cd;
+      padding: 15px;
+    }
+
+    main.content {
+      grid-area: content;
+      background-color: #e2e3e5;
+      padding: 15px;
+    }
+
+    footer.footer {
+      grid-area: footer;
+      background-color: #d1e7dd;
+      padding: 15px;
+      text-align: center;
+    }
+
+    /* Subbab 3.9.3 Responsive Grid Produk */
     .grid-produk {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -131,130 +163,142 @@
       margin-top: 15px;
     }
 
-    .card-produk {
-      background: #e9ecef;
+    .grid-produk div {
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
       padding: 20px;
       text-align: center;
-      border: 1px solid #ced4da;
-      font-weight: bold;
     }
 
-    /* =========================================================
-       3.9.3 & 3.9.4 Media Queries (Responsiveness)
-       ========================================================= */
-    /* Tablet (< 768px): Grid produk jadi 2 kolom */
+    /* Subbab 3.9.3 Media Queries Breakpoint Tablet & Mobile */
     @media (max-width: 768px) {
       .grid-produk {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    /* Mobile (< 576px): Navbar jadi kolom vertikal, layout grid jadi 1 kolom bertumpuk */
     @media (max-width: 576px) {
-      .navbar-demo {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-      }
       .grid-produk {
         grid-template-columns: 1fr;
       }
-      .layout-grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "header"
-          "sidebar"
-          "content"
-          "footer";
+
+      /* Subbab 3.9.4 Navbar Responsif */
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>Praktikum Pemrograman Web - Modul 3 (CSS)</h1>
+  <!-- Subbab 3.1.1 (c) Inline Style & 3.4 Alignment of Text -->
+  <h1 style="color:lightblue; font-size: 30px;">Praktikum Web Programming</h1>
+  <h1>Heading 1 (center)</h1>
+  <h2>Heading 2 (left)</h2>
+  <h3>Heading 3 (right)</h3>
 
-  <!-- 1. SINTAKS, FONT, COLOR, DIV & SPAN -->
-  <div class="section-box">
-    <h2 class="section-title">1. Dasar Styling (Font, Text Alignment, Colors, Div & Span)</h2>
-    
-    <!-- 3.1.1 (c) Inline Style Demo -->
-    <p style="color: darkblue; font-size: 14px; margin-bottom: 10px;">
-      * Paragraf ini menggunakan <strong>Inline Style</strong> (langsung pada atribut style).
-    </p>
+  <hr>
 
-    <!-- 3.6 Span & Div -->
-    <p class="p-custom">
-      Paragraf ini memadukan class CSS dan tag <code>&lt;span&gt;</code> untuk memberi penekanan pada kata 
-      <span class="mark-highlight">Property Penting</span>.
-    </p>
-  </div>
+  <!-- Subbab 3.1.2 Selector Demo -->
+  <p id="para1">Paragraf dengan ID para1 (merah dan rata tengah)</p>
+  <p class="center">Paragraf dengan Class center</p>
 
-  <!-- 2. LIST PROPERTIES -->
-  <div class="section-box">
-    <h2 class="section-title">2. List Properties (Subbab 3.3)</h2>
-    
-    <ul class="list-satu">
-      <li>Unordered List dengan simbol square</li>
-      <li>Posisi penanda: inside</li>
-      <li>Background transparan RGBA</li>
-    </ul>
+  <!-- Subbab 3.2 Font Properties -->
+  <p class="example">Ini adalah contoh penerapan font properties (Arial, 20px, italic, bold, lightblue).</p>
 
-    <ol class="list-dua">
-      <li>Ordered List penomoran romawi kecil (lower-roman)</li>
-      <li>Elemen kedua list</li>
-    </ol>
-  </div>
+  <!-- Subbab 3.5 Colors (ID dan Opacity) -->
+  <p id="teks">Teks ini menggunakan hex color #2F3CDF.</p>
+  <input type="text" class="text-field" value="Input field dengan background RGBA opacity 0.5">
 
-  <!-- 3. FLEXBOX & RESPONSIVE NAVBAR -->
-  <div class="section-box">
-    <h2 class="section-title">3. Flexbox Navigation Bar (Subbab 3.7 & 3.9.4)</h2>
-    <p style="margin-bottom: 10px; font-size: 13px; color: #666;">
-      Tampilan akan berjejer horizontal di desktop, dan otomatis berubah jadi vertikal (column) saat layar &le; 576px.
-    </p>
+  <hr>
 
-    <nav class="navbar-demo">
-      <div style="font-weight: bold; font-size: 18px;">WebPro Lab</div>
-      <ul class="nav-links">
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Materi</a></li>
-        <li><a href="#">Jurnal</a></li>
+  <!-- Subbab 3.3 List Properties Asli Modul -->
+  <h3>List of Property</h3>
+  <ol type="1">
+    <li>Indoor
+      <ul type="circle">
+        <li>Sofa</li>
       </ul>
-      <div><button style="padding: 5px 10px; cursor: pointer;">Login</button></div>
-    </nav>
+      <ul type="disc">
+        <li>Tanaman Hias</li>
+      </ul>
+      <ul type="square">
+        <li>Lampu Baca</li>
+      </ul>
+      <ul type="none">
+        <li>Rak Buku</li>
+      </ul>
+    </li>
+    <li>Outdoor
+      <ol type="A">
+        <li>Payung Pantai</li>
+      </ol>
+      <ol type="a">
+        <li>Ayunan</li>
+      </ol>
+      <ol type="I">
+        <li>Kursi Taman</li>
+      </ol>
+      <ol type="i">
+        <li>Lampu Taman</li>
+      </ol>
+    </li>
+  </ol>
+
+  <!-- Subbab 3.3 List dengan Tambahan CSS (listsatu & listdua) -->
+  <ul class="listsatu">
+    <li>Sofa</li>
+  </ul>
+  <ol class="listdua">
+    <li>Tanaman Hias</li>
+  </ol>
+
+  <hr>
+
+  <!-- Subbab 3.6 Span & Div Asli Modul -->
+  <div class="section1">
+    <p>Content of <span class="mark">Property</span></p>
   </div>
 
-  <!-- 4. CSS GRID LAYOUT -->
-  <div class="section-box">
-    <h2 class="section-title">4. CSS Grid Layout (Subbab 3.8 - Dua Dimensi)</h2>
-    <p style="font-size: 13px; color: #666;">
-      Menggunakan <code>grid-template-areas</code> ("header", "sidebar", "content", "footer") dan rasio kolom <code>1fr 3fr</code>.
-    </p>
+  <hr>
 
-    <div class="layout-grid">
-      <header class="grid-header">Header Area</header>
-      <aside class="grid-sidebar">Sidebar (1fr)</aside>
-      <main class="grid-content">Konten Utama (3fr)</main>
-      <footer class="grid-footer">Footer Area</footer>
-    </div>
+  <!-- Subbab 3.7.2 & 3.9.4 Flexbox Navbar Asli Modul -->
+  <h4>Penerapan Flexbox Navbar (Subbab 3.7.2 & 3.9.4):</h4>
+  <nav class="navbar">
+    <div>Logo</div>
+    <div>Menu</div>
+    <div>Login</div>
+  </nav>
+
+  <!-- Subbab 3.7.3 Flex Item (order & flex-grow) Asli Modul -->
+  <h4>Penerapan Flex Item (.card & .card.featured):</h4>
+  <div class="card-container">
+    <div class="card">Card Biasa 1</div>
+    <div class="card featured">Card Featured (order: -1, flex-grow: 2)</div>
+    <div class="card">Card Biasa 2</div>
   </div>
 
-  <!-- 5. RESPONSIVE DESIGN (MEDIA QUERIES) -->
-  <div class="section-box">
-    <h2 class="section-title">5. Responsive Grid Produk via Media Query (Subbab 3.9)</h2>
-    <p style="font-size: 13px; color: #666;">
-      Coba ubah ukuran jendela browser: <strong>4 Kolom</strong> (Desktop) &rarr; <strong>2 Kolom</strong> (&le; 768px) &rarr; <strong>1 Kolom</strong> (&le; 576px).
-    </p>
+  <hr>
 
-    <div class="grid-produk">
-      <div class="card-produk">Produk 1</div>
-      <div class="card-produk">Produk 2</div>
-      <div class="card-produk">Produk 3</div>
-      <div class="card-produk">Produk 4</div>
-    </div>
+  <!-- Subbab 3.8 CSS Grid Layout Asli Modul -->
+  <h4>Penerapan CSS Grid Layout (Subbab 3.8):</h4>
+  <div class="layout">
+    <header class="header">Header</header>
+    <aside class="sidebar">Sidebar</aside>
+    <main class="content">Konten Utama</main>
+    <footer class="footer">Footer</footer>
+  </div>
+
+  <hr>
+
+  <!-- Subbab 3.9.3 Responsive Grid Produk Asli Modul -->
+  <h4>Penerapan Grid Produk Responsif (Subbab 3.9.3):</h4>
+  <div class="grid-produk">
+    <div>Produk 1</div>
+    <div>Produk 2</div>
+    <div>Produk 3</div>
+    <div>Produk 4</div>
   </div>
 
 </body>
