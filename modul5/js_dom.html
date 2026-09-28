@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 2 - Manipulasi DOM</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .kartu {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #fafafa;
+      max-width: 320px;
+    }
+    .kartu h3 { margin: 0 0 6px 0; color: #333; }
+    .kartu p { margin: 0; color: #666; }
+    .btn {
+      padding: 8px 16px;
+      border: 1px solid #007bff;
+      background: white;
+      color: #007bff;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    /* Class toggle saat aktif */
+    .btn.aktif {
+      background: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="judul">Daftar Mahasiswa</h1>
+  <button id="tombol-status" class="btn">Ubah Status Tombol</button>
+
+  <div id="wadah-kartu"></div>
+
+  <script>
+    // 1. Selector DOM & Mengubah Teks (Modul 5.5.2 & 5.5.3)
+    const judul = document.getElementById("judul");
+    console.log("Judul saat ini:", judul.textContent);
+
+    // 2. Event Listener & classList (Modul 5.5.4 & 5.5.6)
+    const tombol = document.getElementById("tombol-status");
+    tombol.addEventListener("click", () => {
+      tombol.classList.toggle("aktif");
+      if (tombol.classList.contains("aktif")) {
+        tombol.textContent = "Status: Aktif (Terkunci)";
+      } else {
+        tombol.textContent = "Ubah Status Tombol";
+      }
+    });
+
+    // 3. Render Daftar Mahasiswa dari Array (Modul 5.5.5)
+    const dataMahasiswa = [
+      { nama: "Andi Saputra", nim: "1301223001" },
+      { nama: "Bunga Lestari", nim: "1301223002" },
+      { nama: "Cakra Wijaya", nim: "1301223003" }
+    ];
+
+    const wadah = document.getElementById("wadah-kartu");
+
+    function buatKartuMahasiswa(mhs) {
+      const kartu = document.createElement("div");
+      kartu.className = "kartu";
+      kartu.innerHTML = `<h3>${mhs.nama}</h3><p>NIM: ${mhs.nim}</p>`;
+      return kartu;
+    }
+
+    // Ulangi setiap data lalu tempelkan ke DOM
+    dataMahasiswa.forEach((mhs) => {
+      wadah.appendChild(buatKartuMahasiswa(mhs));
+    });
+  </script>
+</body>
+</html>

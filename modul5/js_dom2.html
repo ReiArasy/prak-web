@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selector & Manipulasi DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      font-size: 26px;
+      line-height: 1.6;
+    }
+    h1 { font-size: 38px; }
+    h3 { font-size: 30px; margin-top: 10px; }
+    ul { font-size: 26px; }
+    li { margin-bottom: 8px; }
+    button {
+      font-size: 26px;
+      padding: 14px 28px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .kartu {
+      border: 3px solid #888;
+      padding: 16px;
+      margin: 12px 0;
+      border-radius: 8px;
+      background: #fdfdfd;
+    }
+    .kartu h3 { font-size: 30px; margin: 0 0 6px 0; }
+    .kartu p { font-size: 24px; margin: 0; }
+    .aktif {
+      outline: 4px solid #ff9900;
+    }
+    hr { margin: 25px 0; border: 2px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian 5.5.2 Selector DOM -->
+  <h1 id="judul">Daftar Mahasiswa</h1>
+  <ul id="list">
+    <li class="item">Andi</li>
+    <li class="item">Bunga</li>
+    <li class="item">Cakra</li>
+  </ul>
+
+  <hr>
+
+  <!-- Bagian 5.5.3 Membaca dan Mengubah Isi Elemen -->
+  <p id="pesan">Teks awal.</p>
+  <div id="kotak"></div>
+
+  <hr>
+
+  <!-- Bagian 5.5.4 Mengubah Atribut, Style, dan Class -->
+  <div>
+    <img id="foto" src="default.jpg" alt="foto profil" width="180">
+    <br><br>
+    <button id="tombol" class="btn">Klik</button>
+  </div>
+
+  <hr>
+
+  <!-- Bagian 5.5.5 Membuat dan Menghapus Elemen -->
+  <h3>Wadah Kartu Mahasiswa Dinamis:</h3>
+  <div id="daftar-kartu"></div>
+
+  <script>
+    // 5.5.2 Selector DOM (Halaman 65)
+    const judul = document.getElementById("judul");
+    const semuaItem = document.querySelectorAll(".item");
+    const itemPertama = document.querySelector("#list .item");
+
+    console.log(judul.textContent);
+    console.log(semuaItem.length);
+    console.log(itemPertama.textContent);
+
+    semuaItem.forEach(function (li, index) {
+      console.log(index, li.textContent);
+    });
+
+    // 5.5.3 Membaca dan Mengubah Isi Elemen (Halaman 66)
+    const pesan = document.getElementById("pesan");
+    pesan.textContent = "Teks ini sudah diubah oleh JavaScript.";
+
+    const kotak = document.getElementById("kotak");
+    kotak.innerHTML = "<strong>Halo</strong>, ini isi HTML yang dibuat lewat DOM.";
+
+    // 5.5.4 Mengubah Atribut, Style, dan Class (Halaman 66-67)
+    const foto = document.getElementById("foto");
+    foto.setAttribute("src", "mahasiswa.jpg");
+    foto.alt = "Foto mahasiswa";
+
+    const tombol = document.getElementById("tombol");
+    tombol.style.backgroundColor = "#0d6efd";
+    tombol.style.color = "white";
+    tombol.style.padding = "14px 28px";
+    tombol.style.fontSize = "26px";
+
+    tombol.classList.add("aktif");
+    tombol.classList.remove("btn");
+    tombol.classList.toggle("aktif");
+    console.log(tombol.classList.contains("aktif"));
+
+    // 5.5.5 Membuat dan Menghapus Elemen (Halaman 67-68)
+    const dataMahasiswa = [
+      { nama: "Andi Saputra", nim: "1301223001" },
+      { nama: "Bunga Lestari", nim: "1301223002" },
+      { nama: "Cakra Wijaya", nim: "1301223003" }
+    ];
+
+    const wadah = document.getElementById("daftar-kartu");
+
+    function buatKartuMahasiswa(mhs) {
+      const kartu = document.createElement("div");
+      kartu.className = "kartu";
+      kartu.innerHTML =
+        "<h3>" + mhs.nama + "</h3>" +
+        "<p>NIM: " + mhs.nim + "</p>";
+      return kartu;
+    }
+
+    dataMahasiswa.forEach(function (mhs) {
+      wadah.appendChild(buatKartuMahasiswa(mhs));
+    });
+
+    // Menghapus kartu pertama setelah 3 detik
+    setTimeout(function () {
+      const kartuPertama = wadah.querySelector(".kartu");
+      if (kartuPertama) {
+        kartuPertama.remove();
+        console.log("Kartu pertama berhasil dihapus setelah 3 detik");
+      }
+    }, 3000);
+  </script>
+</body>
+</html>

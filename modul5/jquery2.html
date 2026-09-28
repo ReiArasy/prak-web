@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      font-size: 26px;
+      line-height: 1.6;
+    }
+    h3 { font-size: 32px; margin-bottom: 12px; }
+    p { font-size: 26px; }
+    button {
+      font-size: 24px;
+      padding: 12px 24px;
+      margin-right: 12px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    hr { margin: 35px 0; border: 2px solid #ccc; }
+    #kotak-animasi {
+      background: #98bf21;
+      height: 140px;
+      width: 140px;
+      position: absolute;
+      border-radius: 8px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      // 5.6.1 Efek hide/show (Halaman 69)
+      $("#hide").click(function () {
+        $("p.target-p").hide();
+      });
+      $("#show").click(function () {
+        $("p.target-p").show();
+      });
+
+      // 5.6.2 Efek animasi (Halaman 69-70)
+      $("#btn-animate").click(function () {
+        $("#kotak-animasi").animate({
+          height: 'toggle'
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Bagian 5.6.1 -->
+  <h3>Efek hide/show</h3>
+  <p class="target-p">Woilah cik muncul</p>
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+
+  <hr>
+
+  <!-- Bagian 5.6.2 -->
+  <h3>Efek animasi</h3>
+  <p>Klik buat animasi</p>
+  <button id="btn-animate">Start Animation</button>
+  <p>Selalu cek css nya ya karena posisi tata letak standarnya html itu static</p>
+  
+  <div id="kotak-animasi"></div>
+
+</body>
+</html>

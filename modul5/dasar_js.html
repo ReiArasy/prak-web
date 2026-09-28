@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Step 1 - Dasar JavaScript & ES6+</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .log-box {
+        background: #f4f4f4;
+        border-left: 4px solid #007bff;
+        padding: 15px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Step 1: Dasar JS & ES6+</h2>
+    <p>
+      Ini Contoh Dasar JavaScript & ES6+
+    </p>
+    <div class="log-box" id="output">Output akan muncul di sini...</div>
+
+    <script>
+      const outputEl = document.getElementById("output");
+      let printed = "";
+
+      // 1. Variabel let & const (Modul 5.7.1)
+      let umur = 21;
+      umur = 22;
+      const namaKampus = "Universitas Telkom";
+      printed += `Umur: ${umur}, Kampus: ${namaKampus}\n`;
+
+      // 2. Strict Equality === (Modul 5.2.4)
+      const pendidikan = "2";
+      let gelar = "";
+      if (pendidikan === "1") {
+        gelar = "Sarjana";
+      } else if (pendidikan === "2") {
+        gelar = "Master";
+      } else {
+        gelar = "Tidak Diketahui";
+      }
+      printed += `Pendidikan: ${pendidikan}, Gelar: ${gelar}\n`;
+
+      // 3. Arrow Function (Modul 5.7.2)
+      const hitungTambah = (a, b) => a + b;
+      printed += `Hasil 4 + 6 = ${hitungTambah(4, 6)}\n`;
+
+      // 4. Destructuring (Modul 5.7.4)
+      const mahasiswa = { nama: "Sarnas", nim: "1201230002", jurusan: "RPL" };
+      const { nama, nim } = mahasiswa;
+      printed += `Mahasiswa: ${nama}, NIM: ${nim}\n`;
+
+      // 5. Spread Operator (Modul 5.7.5)
+      const genap = [2, 4, 6];
+      const semuaAngka = [1, ...genap, 8];
+      printed += `Array Hasil Spread: [${semuaAngka.join(", ")}]\n`;
+
+      // Tampilkan di halaman dan di Console
+      outputEl.innerText = printed;
+      console.log(printed);
+    </script>
+  </body>
+</html>

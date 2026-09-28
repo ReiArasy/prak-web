@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dasar JS & ES6+</title>
+  <style>
+    /* Styling khusus layar proyektor */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      font-size: 26px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #111111;
+    }
+    h2 { font-size: 36px; margin-bottom: 10px; }
+    p { font-size: 26px; }
+    pre {
+      background: #f0f0f0;
+      padding: 25px;
+      border-radius: 8px;
+      border: 3px solid #333;
+      font-size: 26px;
+      line-height: 1.7;
+      font-family: Consolas, monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Modul 5: Eksekusi Kode Dasar & ES6+</h2>
+  <p>Contoh Penggunaan Dasar JavaScript & ES6+</p>
+  <pre id="log-screen">Menjalankan kode dari modul...</pre>
+
+  <script>
+    const screen = document.getElementById("log-screen");
+    let logs = [];
+
+    // --- 5.2.2 Variabel (Halaman 58) ---
+    var a;
+    var nama = "Budi";
+    nama = "Anton";
+    nama = 1;
+    logs.push("Variabel nama = " + nama);
+
+    // --- 5.2.3 Array (Halaman 58) ---
+    var data = ["satu", 2, true];
+    var arr2 = [["satu", "dua"], ["tiga", "empat"]];
+    logs.push("Array data = " + data[2]);
+    logs.push("Array arr2 = " + arr2[0][1]);
+
+    // --- 5.2.4 Pengendalian Struktur (Halaman 58-59) ---
+    var gelar;
+    var pendidikan = "S2";
+    if (pendidikan === "S1") {
+      gelar = "Sarjana";
+    } else if (pendidikan === "S2") {
+      gelar = "Master";
+    } else if (pendidikan === "S3") {
+      gelar = "Doktor";
+    } else {
+      gelar = "Tidak Diketahui";
+    }
+    logs.push("If gelar = " + gelar);
+
+    // --- 5.3.1 Pembuatan Object (Halaman 59-60) ---
+    var mobil = {
+      "warna-badan": "merah",
+      "nomor-polisi": "BK1234AB"
+    };
+    logs.push("Warna mobil: " + mobil["warna-badan"]);
+
+    // --- 5.4.1 Pembuatan & Pemanggilan Fungsi (Halaman 61-63) ---
+    function tambah(a, b) {
+      hasil = a + b;
+      return hasil;
+    }
+    logs.push("Fungsi tambah 3 + 5 = " + tambah(3, 5));
+
+    // --- 5.7.1 let dan const (Halaman 71) ---
+    let umur = 21;
+    umur = 22;
+    const namaKampus = "Universitas ABC";
+    logs.push("let & const: umur = " + umur + ", kampus = " + namaKampus);
+
+    // --- 5.7.2 Arrow Function (Halaman 71) ---
+    const tambahArrow = (a, b) => a + b;
+    logs.push("Arrow Function: fungsi tambah 5 + 7 = " + tambahArrow(5, 7));
+
+    // --- 5.7.3 Template Literals (Halaman 71-72) ---
+    const namaMhs = "Budi";
+    const nilaiMhs = 90;
+    const strTemplate = `Nama: ${namaMhs}, Nilai: ${nilaiMhs}`;
+    logs.push("Template Literals: " + strTemplate);
+
+    // --- 5.7.4 Destructuring (Halaman 72) ---
+    const mahasiswa = { nama: "Ani", nim: "12345", jurusan: "RPL" };
+    const { nama: namaDestruct, nim } = mahasiswa;
+    const koordinat = [10, 20];
+    const [x, y] = koordinat;
+    logs.push("Destructuring Object: nama = " + namaDestruct);
+    logs.push("Destructuring Array: x = " + x + ", y = " + y);
+
+    // --- 5.7.5 Spread & Rest Operator (Halaman 72) ---
+    const genap = [2, 4, 6];
+    const semuaAngka = [1, ...genap, 8];
+    logs.push("Spread Array: [" + semuaAngka.join(", ") + "]");
+
+    function jumlahkan(...angka) {
+      return angka.reduce((total, n) => total + n, 0);
+    }
+    logs.push("Rest Parameter: jumlahkan 1-4 = " + jumlahkan(1, 2, 3, 4));
+
+    screen.textContent = logs.join("\n");
+  </script>
+</body>
+</html>

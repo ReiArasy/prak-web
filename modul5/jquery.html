@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 4 - jQuery Effects</title>
+  <!-- Pemanggilan jQuery via CDN sesuai Modul 5.6.1 -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .paragraf-box {
+      padding: 10px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      margin-bottom: 10px;
+      max-width: 400px;
+    }
+    .kotak-animasi {
+      background: #28a745;
+      height: 80px;
+      width: 80px;
+      margin-top: 15px;
+      border-radius: 6px;
+    }
+    button { padding: 6px 12px; margin-right: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>jQuery Efek Visual</h2>
+
+  <!-- Bagian 1: Hide / Show (Modul 5.6.1) -->
+  <h3>1. Hide / Show</h3>
+  <div class="paragraf-box">
+    <p>Jika kamu mengklik tombol "Hide", teks ini akan menghilang.</p>
+  </div>
+  <button id="hide">Hide</button>
+  <button id="show">Show</button>
+
+  <hr style="margin: 25px 0;">
+
+  <!-- Bagian 2: Animasi Toggle (Modul 5.6.2) -->
+  <h3>2. Efek Toggle Animasi</h3>
+  <button id="btn-animasi">Toggle Tinggi Kotak</button>
+  <div class="kotak-animasi"></div>
+
+  <script>
+    // Memastikan DOM siap sebelum jQuery dijalankan
+    $(document).ready(function () {
+      // 1. Hide & Show
+      $("#hide").click(function () {
+        $(".paragraf-box").hide();
+      });
+
+      $("#show").click(function () {
+        $(".paragraf-box").show();
+      });
+
+      // 2. Animate toggle height
+      $("#btn-animasi").click(function () {
+        $(".kotak-animasi").animate({
+          height: 'toggle'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
